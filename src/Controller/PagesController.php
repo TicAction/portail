@@ -35,7 +35,15 @@ class PagesController extends AppController
      * @throws \Cake\Network\Exception\NotFoundException When the view file could not
      *   be found or \Cake\View\Exception\MissingTemplateException in debug mode.
      */
-    public function accueil()
+    public function homepage()
+    {
+
+        $message ="Portail de la classe de votre enfant";
+
+        $this->set(compact("message"));
+
+    }
+    public function index()
     {
 
         $message ="Portail de la classe de votre enfant";

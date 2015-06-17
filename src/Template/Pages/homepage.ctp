@@ -1,4 +1,4 @@
-<?= $this->layout="accueil"?>
+<?= $this->layout="accueil";?>
 
 <?php $this->start('header'); ?>
     <div class="label label-success">
@@ -22,7 +22,7 @@
                 ['class'=>'btn btn-danger btn-lg']
             );?>
             <?= $this->Html->link("S'enregistrer au site" ,
-                ["controller"=>"Users","action"=>"register","_full"=>true] ,
+                ["controller"=>"Pages","action"=>"register","_full"=>true] ,
                 ['class' => 'btn btn-danger btn-lg',
                     'data-toggle'=> 'modal',
                     'data-target' => '#ConfirmDelete'],

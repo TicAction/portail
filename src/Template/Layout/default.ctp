@@ -1,6 +1,4 @@
 <?php
-
-
 $cakeDescription = 'Portail de gestion de classe';
 ?>
 <!DOCTYPE html>
@@ -45,7 +43,7 @@ $cakeDescription = 'Portail de gestion de classe';
                 </ul>
 
                 <ul class="nav navbar-nav navbar-right">
-                    <li><?= $this->Html->link('DÉCONNEXION' , ['controller'=>'Pages','action'=>'logout'])?></li>
+                    <li><?= $this->Html->link('DÉCONNEXION' , ['controller'=>'Users','action'=>'logout'])?></li>
                 </ul>
             </div>
         </div>
@@ -99,7 +97,7 @@ $cakeDescription = 'Portail de gestion de classe';
             </div>
             <div class="panel-body text-justify">
 
-                <?= $this->fetch('content') ?>
+                <?= $this->fetch('centre') ?>
             </div>
         </div>
 

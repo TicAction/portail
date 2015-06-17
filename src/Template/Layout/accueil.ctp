@@ -26,8 +26,8 @@
 <content>
     <div class="container">
 
-        
-            <?= $this->fetch('content'); ?>
+
+        <?= $this->fetch('center'); ?>
 
     </div>
 
@@ -37,11 +37,30 @@
 <footer>
 
 
-        <div class="navbar navbar-fixed-bottom">
+    <div class="navbar navbar-fixed-bottom">
+        <div class="container">
 
-            <?= $this->fetch('footer'); ?>
+            <div class="navbar-text navbar-right">
+
+                <?= $this->Html->link(
+                    'Connexion',
+                    ['controller' => 'Users', 'action' => 'login', '_full' => true],
+                    ['class'=>'btn btn-danger btn-lg']
+                );?>
+                <?= $this->Html->link("S'enregistrer au site" ,
+                    ["controller"=>"Users","action"=>"register","_full"=>true] ,
+                    ['class' => 'btn btn-danger btn-lg',
+                        'data-toggle'=> 'modal',
+                        'data-target' => '#ConfirmDelete'],
+                    ['confirm' => 'Are you sure you wish to delete this recipe?']
+                )?>
+
+            </div>
 
         </div>
+
+
+    </div>
 
 
 

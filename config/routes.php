@@ -47,8 +47,13 @@ Router::scope('/', function ($routes) {
      * its action called 'display', and we pass a param to select the view file
      * to use (in this case, src/Template/Pages/home.ctp)...
      */
-    $routes->connect('/', ['controller' => 'Pages', 'action' => 'accueil']);
+    $routes->connect('/', ['controller' => 'Pages', 'action' => 'homepage']);
     $routes->connect('index', ['controller' => 'Pages', 'action' => 'index']);
+
+    //section Admin
+    $routes->connect('connexion', ['controller' => 'Users', 'action' => 'login']);
+    $routes->connect('deconnexion', ['controller' => 'Users', 'action' => 'logout']);
+    $routes->connect('enregistrer', ['controller' => 'Users', 'action' => 'register']);
 
 
 
