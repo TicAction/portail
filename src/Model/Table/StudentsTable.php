@@ -1,17 +1,17 @@
 <?php
 namespace App\Model\Table;
 
-use App\Model\Entity\User;
+use App\Model\Entity\Student;
 use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
 
 /**
- * Users Model
+ * Students Model
  *
  */
-class UsersTable extends Table
+class StudentsTable extends Table
 {
 
     /**
@@ -22,7 +22,7 @@ class UsersTable extends Table
      */
     public function initialize(array $config)
     {
-        $this->table('users');
+        $this->table('students');
         $this->displayField('id');
         $this->primaryKey('id');
         $this->addBehavior('Timestamp');
@@ -41,19 +41,6 @@ class UsersTable extends Table
             ->allowEmpty('id', 'create');
             
         $validator
-            ->requirePresence('username', 'create')
-            ->notEmpty('username');
-            
-        $validator
-            ->requirePresence('password', 'create')
-            ->notEmpty('password');
-            
-        $validator
-            ->add('email', 'valid', ['rule' => 'email'])
-            ->requirePresence('email', 'create')
-            ->notEmpty('email');
-            
-        $validator
             ->requirePresence('firstname', 'create')
             ->notEmpty('firstname');
             
@@ -62,27 +49,13 @@ class UsersTable extends Table
             ->notEmpty('lastname');
             
         $validator
-            ->requirePresence('code', 'create')
-            ->notEmpty('code');
-
+            ->requirePresence('fcode', 'create')
+            ->notEmpty('fcode');
+            
         $validator
-            ->requirePresence('role', 'create')
-            ->allowEmpty('role');
+            ->requirePresence('mcode', 'create')
+            ->notEmpty('mcode');
 
         return $validator;
-    }
-
-    /**
-     * Returns a rules checker object that will be used for validating
-     * application integrity.
-     *
-     * @param \Cake\ORM\RulesChecker $rules The rules object to be modified.
-     * @return \Cake\ORM\RulesChecker
-     */
-    public function buildRules(RulesChecker $rules)
-    {
-        $rules->add($rules->isUnique(['username']));
-        $rules->add($rules->isUnique(['email']));
-        return $rules;
     }
 }

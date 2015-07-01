@@ -26,7 +26,8 @@
 <content>
     <div class="container">
 
-
+        <?= $this->Flash->render();?>
+        <?= $this->Flash->render('auth');?>
         <?= $this->fetch('center'); ?>
 
     </div>

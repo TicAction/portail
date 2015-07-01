@@ -15,6 +15,7 @@
 namespace App\Controller;
 
 use Cake\Controller\Controller;
+use Cake\Event\Event;
 
 /**
  * Application Controller
@@ -41,9 +42,11 @@ class AppController extends Controller
 
         parent::initialize();
         $this->loadComponent('Auth', [
-            'authenticate' => ['Form']
-        ]);
-        $this->Auth->allow();
+            'authenticate' =>
+                'Form']);
+
 
     }
+
+
 }

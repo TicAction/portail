@@ -1,6 +1,11 @@
-<?= $this->layout = "accueil"; ?>
+<?= $this->layout = "register"; ?>
 
+<?php $this->start('header'); ?>
+    <div class="label label-success">
 
+       Connexion
+    </div>
+<?php $this->end(); ?>
 <?php $this->start('center'); ?>
 
 
@@ -12,17 +17,30 @@
                 </h3>
             </div>
             <div class="panel-body">
-
-
                 <?= $this->Flash->render('auth') ?>
+
                 <?= $this->Form->create() ?>
 
+<table class="table">
 
-                <?= $this->Form->input('username') ?>
-                <?= $this->Form->input('password') ?>
 
-                <?= $this->Form->button(__('Se Connecter'), ["class" => "btn btn-danger"]); ?>
-                <?= $this->Form->end() ?>
+
+    <tr>
+        <td><?= $this->Form->input('username',['label'=>"Nom d'utilisateur"]) ?></td>
+
+    </tr>
+    <tr>
+
+        <td><?= $this->Form->input('password',['label'=>"Mot de passe"]) ?></td>
+    </tr>
+
+</table>
+    <?= $this->Form->button(__('Se Connecter'), ["class" => "btn btn-success"]); ?>
+    <?= $this->Form->end() ?>
+
+
+
+
 
 
             </div>

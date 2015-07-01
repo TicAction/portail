@@ -1,4 +1,4 @@
-<?= $this->layout="accueil";?>
+<?= $this->layout="secure";?>
 
 
 <?php $this->start('header'); ?>

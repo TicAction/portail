@@ -15,6 +15,7 @@
 namespace App\Controller;
 
 use Cake\Core\Configure;
+use Cake\Event\Event;
 use Cake\Network\Exception\NotFoundException;
 use Cake\View\Exception\MissingTemplateException;
 
@@ -28,6 +29,11 @@ use Cake\View\Exception\MissingTemplateException;
 class PagesController extends AppController
 {
 
+    public function beforeFilter(Event $event)
+    {
+        parent::beforeFilter($event);
+        $this->Auth->allow(['homepage']);
+    }
     /**
      * Displays a view
      *
@@ -46,9 +52,15 @@ class PagesController extends AppController
     public function index()
     {
 
-        $message ="Portail de la classe de votre enfant";
+        if( $this->Auth->user("role") == 'Role_Admin'){
+            $message ="Bienvenu ".$this->Auth->user("firstname");
+            $this->set(compact("message"));
+        }else{
+            $message ="Bienvenu dans la classe de votre enfant";
 
-        $this->set(compact("message"));
+            $this->set(compact("message"));
+        }
+
 
     }
 
