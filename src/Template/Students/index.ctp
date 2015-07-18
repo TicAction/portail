@@ -2,6 +2,8 @@
     <h3><?= __('Actions') ?></h3>
     <ul class="side-nav">
         <li><?= $this->Html->link(__('New Student'), ['action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('List Users'), ['controller' => 'Users', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add']) ?></li>
     </ul>
 </div>
 <div class="students index large-10 medium-9 columns">
@@ -11,10 +13,8 @@
             <th><?= $this->Paginator->sort('id') ?></th>
             <th><?= $this->Paginator->sort('firstname') ?></th>
             <th><?= $this->Paginator->sort('lastname') ?></th>
-            <th><?= $this->Paginator->sort('fcode') ?></th>
             <th><?= $this->Paginator->sort('mcode') ?></th>
-            <th><?= $this->Paginator->sort('created') ?></th>
-            <th><?= $this->Paginator->sort('modified') ?></th>
+            <th><?= $this->Paginator->sort('fcode') ?></th>
             <th class="actions"><?= __('Actions') ?></th>
         </tr>
     </thead>
@@ -24,10 +24,8 @@
             <td><?= $this->Number->format($student->id) ?></td>
             <td><?= h($student->firstname) ?></td>
             <td><?= h($student->lastname) ?></td>
-            <td><?= h($student->fcode) ?></td>
             <td><?= h($student->mcode) ?></td>
-            <td><?= h($student->created) ?></td>
-            <td><?= h($student->modified) ?></td>
+            <td><?= h($student->fcode) ?></td>
             <td class="actions">
                 <?= $this->Html->link(__('View'), ['action' => 'view', $student->id]) ?>
                 <?= $this->Html->link(__('Edit'), ['action' => 'edit', $student->id]) ?>

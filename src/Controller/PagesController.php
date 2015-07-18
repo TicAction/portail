@@ -51,15 +51,15 @@ class PagesController extends AppController
     }
     public function index()
     {
-
-        if( $this->Auth->user("role") == 'Role_Admin'){
-            $message ="Bienvenu ".$this->Auth->user("firstname");
-            $this->set(compact("message"));
-        }else{
-            $message ="Bienvenu dans la classe de votre enfant";
-
-            $this->set(compact("message"));
-        }
+//
+//        if( $this->Auth->user("role") == 'Role_Admin'){
+//            $message ="Bienvenu ".$this->Auth->user("firstname");
+//            $this->set(compact("message"));
+//        }else{
+//            $message ="Bienvenu dans la classe de votre enfant";
+//
+//            $this->set(compact("message"));
+//        }
 
 
     }

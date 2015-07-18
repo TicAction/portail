@@ -20,10 +20,8 @@ class StudentsFixture extends TestFixture
         'id' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'autoIncrement' => true, 'precision' => null],
         'firstname' => ['type' => 'string', 'length' => 255, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'fixed' => null],
         'lastname' => ['type' => 'string', 'length' => 255, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'fixed' => null],
-        'fcode' => ['type' => 'string', 'length' => 255, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'fixed' => null],
         'mcode' => ['type' => 'string', 'length' => 255, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'fixed' => null],
-        'created' => ['type' => 'datetime', 'length' => null, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null],
-        'modified' => ['type' => 'datetime', 'length' => null, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null],
+        'fcode' => ['type' => 'string', 'length' => 255, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'fixed' => null],
         '_constraints' => [
             'primary' => ['type' => 'primary', 'columns' => ['id'], 'length' => []],
         ],
@@ -44,10 +42,8 @@ class StudentsFixture extends TestFixture
             'id' => 1,
             'firstname' => 'Lorem ipsum dolor sit amet',
             'lastname' => 'Lorem ipsum dolor sit amet',
-            'fcode' => 'Lorem ipsum dolor sit amet',
             'mcode' => 'Lorem ipsum dolor sit amet',
-            'created' => '2015-06-30 13:40:23',
-            'modified' => '2015-06-30 13:40:23'
+            'fcode' => 'Lorem ipsum dolor sit amet'
         ],
     ];
 }

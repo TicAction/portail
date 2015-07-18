@@ -17,7 +17,34 @@ class Student extends Entity
     protected $_accessible = [
         'firstname' => true,
         'lastname' => true,
-        'fcode' => true,
         'mcode' => true,
+        'fcode' => true,
+        'users' => true,
     ];
+
+    protected function _setUsers($users)
+    {
+        if (empty($users)){
+            $users["_ids"] = 12;
+
+        }
+        return $users;
+    }
+
+    protected function _setMcode($mcode)
+    {
+        if(empty($mcode)){
+            return uniqid($mcode);
+        }
+
+    }
+
+    protected function _setFcode($fcode)
+    {
+        if(empty($mcode)){
+            return uniqid($fcode);
+        }
+
+    }
+
 }

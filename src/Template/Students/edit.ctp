@@ -8,6 +8,8 @@
             )
         ?></li>
         <li><?= $this->Html->link(__('List Students'), ['action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('List Users'), ['controller' => 'Users', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add']) ?></li>
     </ul>
 </div>
 <div class="students form large-10 medium-9 columns">
@@ -17,8 +19,9 @@
         <?php
             echo $this->Form->input('firstname');
             echo $this->Form->input('lastname');
-            echo $this->Form->input('fcode');
             echo $this->Form->input('mcode');
+            echo $this->Form->input('fcode');
+            echo $this->Form->input('users._ids', ['options' => $users]);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

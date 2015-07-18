@@ -21,33 +21,15 @@ class User extends Entity
         'email' => true,
         'firstname' => true,
         'lastname' => true,
-        "role"     =>true,
         'code' => true,
+        'students' => true,
     ];
-
-    public function _setRole($role , $code)
-    {
-
-        $firstLetter = $this->code;;
-        if(empty($role) and $firstLetter[0]=="P"){
-            $userRole ="Role_Father";
-            return $userRole;
-        }elseif(empty($role) and $firstLetter[0]=="M"){
-            $userRole = "Role_Mother";
-            return $userRole;
-        }elseif(empty($role) and $firstLetter[0]=="E"){
-            $userRole = "Role_Teacher";
-            return $userRole;
-        }elseif(empty($role) and $firstLetter[0] =="A"){
-            $userRole ="Role_Admin";
-            return $userRole;
-        }
-    }
 
     protected function _setPassword($password)
     {
         return (new DefaultPasswordHasher())->hash($password);
     }
+
 
 
 }

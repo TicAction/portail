@@ -50,8 +50,8 @@ class UsersFixture extends TestFixture
             'firstname' => 'Lorem ipsum dolor sit amet',
             'lastname' => 'Lorem ipsum dolor sit amet',
             'code' => 'Lorem ipsum dolor sit amet',
-            'created' => '2015-06-16 19:50:15',
-            'modified' => '2015-06-16 19:50:15'
+            'created' => '2015-07-07 12:18:39',
+            'modified' => '2015-07-07 12:18:39'
         ],
     ];
 }

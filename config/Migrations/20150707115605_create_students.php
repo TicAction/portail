@@ -23,22 +23,14 @@ class CreateStudents extends AbstractMigration
             'limit' => 255,
             'null' => false,
         ]);
-        $table->addColumn('fcode', 'string', [
-            'default' => null,
-            'limit' => 255,
-            'null' => false,
-        ]);
         $table->addColumn('mcode', 'string', [
             'default' => null,
             'limit' => 255,
             'null' => false,
         ]);
-        $table->addColumn('created', 'datetime', [
+        $table->addColumn('fcode', 'string', [
             'default' => null,
-            'null' => false,
-        ]);
-        $table->addColumn('modified', 'datetime', [
-            'default' => null,
+            'limit' => 255,
             'null' => false,
         ]);
         $table->create();

@@ -12,7 +12,7 @@ $cakeDescription = 'Portail de gestion de classe';
     </title>
     <?= $this->Html->meta('icon') ?>
 
-    <?= $this->Html->css('paper.css') ?>
+    <?= $this->Html->css('cerulean.css') ?>
     <?= $this->Html->css('signin.css') ?>
 
     <?= $this->fetch('meta') ?>
@@ -55,14 +55,14 @@ $cakeDescription = 'Portail de gestion de classe';
 
     <?= $this->Flash->render() ?>
     <div class="col-md-3">
-        <div class="panel panel-primary">
+        <div class="panel panel-info">
             <div class="panel-heading">
                 <h3 class="panel-title">  </tr></h3>
             </div>
             <div class="panel-body">
             </div>
         </div>
-        <div class="panel panel-primary">
+        <div class="panel panel-info">
             <div class="panel-heading">
                 <h3 class="panel-title">Travaux de la semaine</h3>
             </div>
@@ -70,7 +70,7 @@ $cakeDescription = 'Portail de gestion de classe';
 
             </div>
         </div>
-        <div class="panel panel-primary">
+        <div class="panel panel-info">
             <div class="panel-heading">
                 <h3 class="panel-title"> </h3>
             </div>
@@ -78,7 +78,7 @@ $cakeDescription = 'Portail de gestion de classe';
                 je suis le texte
 
             </div>
-        </div>        <div class="panel panel-primary">
+        </div>        <div class="panel panel-info">
             <div class="panel-heading">
                 <h3 class="panel-title"> </h3>
             </div>
@@ -91,13 +91,13 @@ $cakeDescription = 'Portail de gestion de classe';
     </div>
 
     <div class="col-md-9">
-        <div class="panel panel-primary">
+        <div class="panel panel-info">
             <div class="panel-heading">
                 <h3 class="panel-title"><?= $this->fetch('titleContent') ?></h3>
             </div>
             <div class="panel-body text-justify">
 
-                <?= $this->fetch('centre') ?>
+                <?= $this->fetch('content') ?>
             </div>
         </div>
 

@@ -1,18 +1,19 @@
 <?php
 namespace App\Model\Table;
 
-use App\Model\Entity\Student;
+use App\Model\Entity\StudentsUser;
 use Cake\ORM\Query;
 use Cake\ORM\RulesChecker;
 use Cake\ORM\Table;
 use Cake\Validation\Validator;
 
 /**
- * Students Model
+ * StudentsUsers Model
  *
- * @property \Cake\ORM\Association\BelongsToMany $Users
+ * @property \Cake\ORM\Association\BelongsTo $Students
+ * @property \Cake\ORM\Association\BelongsTo $Users
  */
-class StudentsTable extends Table
+class StudentsUsersTable extends Table
 {
 
     /**
@@ -23,12 +24,11 @@ class StudentsTable extends Table
      */
     public function initialize(array $config)
     {
-        $this->table('students');
+        $this->table('students_users');
         $this->displayField('id');
         $this->primaryKey('id');
-        $this->belongsToMany('Users', [
-            'through'=>'StudentsUsers'
-        ]);
+        $this->belongsTo('Students');
+        $this->belongsTo('Users');
     }
 
     /**
@@ -42,23 +42,21 @@ class StudentsTable extends Table
         $validator
             ->add('id', 'valid', ['rule' => 'numeric'])
             ->allowEmpty('id', 'create');
-            
-        $validator
-            ->requirePresence('firstname', 'create')
-            ->notEmpty('firstname');
-            
-        $validator
-            ->requirePresence('lastname', 'create')
-            ->notEmpty('lastname');
-            
-        $validator
-            ->requirePresence('mcode', 'create')
-            ->allowEmpty('mcode');
-            
-        $validator
-            ->requirePresence('fcode', 'create')
-            ->allowEmpty('fcode');
 
         return $validator;
+    }
+
+    /**
+     * Returns a rules checker object that will be used for validating
+     * application integrity.
+     *
+     * @param \Cake\ORM\RulesChecker $rules The rules object to be modified.
+     * @return \Cake\ORM\RulesChecker
+     */
+    public function buildRules(RulesChecker $rules)
+    {
+        $rules->add($rules->existsIn(['student_id'], 'Students'));
+        $rules->add($rules->existsIn(['user_id'], 'Users'));
+        return $rules;
     }
 }

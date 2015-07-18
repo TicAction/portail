@@ -10,6 +10,7 @@ use Cake\Validation\Validator;
 /**
  * Users Model
  *
+ * @property \Cake\ORM\Association\BelongsToMany $Students
  */
 class UsersTable extends Table
 {
@@ -26,6 +27,9 @@ class UsersTable extends Table
         $this->displayField('id');
         $this->primaryKey('id');
         $this->addBehavior('Timestamp');
+        $this->belongsToMany('Students', [
+            'through'=>'StudentsUsers'
+        ]);
     }
 
     /**
@@ -64,10 +68,6 @@ class UsersTable extends Table
         $validator
             ->requirePresence('code', 'create')
             ->notEmpty('code');
-
-        $validator
-            ->requirePresence('role', 'create')
-            ->allowEmpty('role');
 
         return $validator;
     }

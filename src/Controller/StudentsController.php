@@ -32,7 +32,7 @@ class StudentsController extends AppController
     public function view($id = null)
     {
         $student = $this->Students->get($id, [
-            'contain' => []
+            'contain' => ['Users']
         ]);
         $this->set('student', $student);
         $this->set('_serialize', ['student']);
@@ -45,9 +45,15 @@ class StudentsController extends AppController
      */
     public function add()
     {
+
+        $connectUser =$this->Auth->user("id");
         $student = $this->Students->newEntity();
+
+
         if ($this->request->is('post')) {
+
             $student = $this->Students->patchEntity($student, $this->request->data);
+//            debug($this->request->data);die();
             if ($this->Students->save($student)) {
                 $this->Flash->success(__('The student has been saved.'));
                 return $this->redirect(['action' => 'index']);
@@ -55,7 +61,8 @@ class StudentsController extends AppController
                 $this->Flash->error(__('The student could not be saved. Please, try again.'));
             }
         }
-        $this->set(compact('student'));
+        $users = $this->Students->Users->find('list', ['limit' => 200]);
+        $this->set(compact('student', 'users' , 'connectUser'));
         $this->set('_serialize', ['student']);
     }
 
@@ -69,7 +76,7 @@ class StudentsController extends AppController
     public function edit($id = null)
     {
         $student = $this->Students->get($id, [
-            'contain' => []
+            'contain' => ['Users']
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $student = $this->Students->patchEntity($student, $this->request->data);
@@ -80,7 +87,8 @@ class StudentsController extends AppController
                 $this->Flash->error(__('The student could not be saved. Please, try again.'));
             }
         }
-        $this->set(compact('student'));
+        $users = $this->Students->Users->find('list', ['limit' => 200]);
+        $this->set(compact('student', 'users'));
         $this->set('_serialize', ['student']);
     }
 
